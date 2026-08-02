@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .calculator {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100px;
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+    </style>
+
+    <script>
+        function calculate(operation) {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            switch (operation) {
+                case "add":
+                    result = num1 + num2;
+                    break;
+
+                case "subtract":
+                    result = num1 - num2;
+                    break;
+
+                case "multiply":
+                    result = num1 * num2;
+                    break;
+
+                case "divide":
+                    if (num2 == 0) {
+                        alert("Division by zero is not allowed.");
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+
+            document.getElementById("result").value = result;
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="calculator">
+    <h2>Simple Calculator</h2>
+
+    <input type="number" id="num1" placeholder="Enter First Number">
+    <input type="number" id="num2" placeholder="Enter Second Number">
+
+    <br>
+
+    <button onclick="calculate('add')">Sum</button>
+    <button onclick="calculate('subtract')">Difference</button>
+    <button onclick="calculate('multiply')">Product</button>
+    <button onclick="calculate('divide')">Quotient</button>
+
+    <br><br>
+
+    <input type="text" id="result" placeholder="Result" readonly>
+</div>
+
+</body>
+</html>
