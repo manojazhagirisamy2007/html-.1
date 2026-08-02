@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form Validation</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container{
+            width:300px;
+            margin:100px auto;
+            padding:20px;
+            background:#fff;
+            border:2px solid #000;
+            border-radius:10px;
+        }
+
+        h2{
+            text-align:center;
+            color:blue;
+        }
+
+        input{
+            width:95%;
+            padding:8px;
+            margin:8px 0;
+        }
+
+        input[type="submit"],
+        input[type="reset"]{
+            width:45%;
+            background:green;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        input[type="reset"]{
+            background:red;
+        }
+    </style>
+
+    <script>
+        function validateForm()
+        {
+            var uname = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+
+            if(uname == "")
+            {
+                alert("Username cannot be empty");
+                return false;
+            }
+
+            if(pass == "")
+            {
+                alert("Password cannot be empty");
+                return false;
+            }
+
+            if(pass.length < 6)
+            {
+                alert("Password must contain at least 6 characters");
+                return false;
+            }
+
+            alert("Login Successful");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Login Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Username</label><br>
+        <input type="text" id="username" placeholder="Enter Username"><br>
+
+        <label>Password</label><br>
+        <input type="password" id="password" placeholder="Enter Password"><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+    </form>
+</div>
+
+</body>
+</html>
